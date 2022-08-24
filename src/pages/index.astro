@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to Astro.">
+
+	<main>
+		<section class='intro-section'>
+			<h1 class="title">Mateo Arteaga</h1>
+			<h5 class="small-text">Software engineer based in Medellin-Colombia</h5>
+		</section>
+		<section class="content-section">
+			<hr>
+			<p>
+				In love with design and code. Working at Pragma.
+			</p>
+			<p>
+				Investing almost all of my free time looking for awesome projects and inspiration. Interested in web
+				development, edge functions, design systems, open-source and more.
+			</p>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	:global(a, h1, h2, h3, h4, h5, h6, p) {
+		all: unset;
+	}
+
+
+	:global(li) {
+		line-height: 28px;
+	}
+
+
+	.intro-section {
+		display: flex;
+		flex-direction: column;
+
+	}
+
+	hr {
+		margin-top: 28px;
+		margin-bottom: 24px;
+		border: 0.1px solid var(--gray8);
+		width: 18px;
+	}
+
+	.content-section {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	h5 {
+
+		margin-top: 8px;
+		font-weight: 300;
+	}
+
+	main {
+		margin-top: 48px;
+	}
+
+	:global(p) {
+		font-family: var(--noto-serif-font);
+		color: var(--body-color);
+		font-weight: 300;
+		line-height: 28px;
+	}
+</style>
