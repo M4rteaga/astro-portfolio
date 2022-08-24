@@ -1,0 +1,64 @@
+---
+import ProjectPreview from "../components/ProjectPreview.astro";
+import Layout from "../layouts/Layout.astro";
+
+const pathname = Astro.url.pathname;
+
+const projects = (await Astro.glob("./project/**/*.md"))
+    .filter(({ frontmatter }) => !!frontmatter.publishDate)
+    .sort(
+        (a, b) =>
+            new Date(b.frontmatter.publishDate).valueOf() -
+            new Date(a.frontmatter.publishDate).valueOf()
+    );
+---
+
+<Layout title="Welcome to Astro.">
+    <main>
+        <section aria-label="posts section" class="post-section">
+            <ul>
+                {
+                    projects.map((project) => (
+                        <li>
+                            <ProjectPreview client:visible link={pathname + project.file.split('/').pop().split('.')[0]}
+                        title={project.frontmatter.title} date={project.frontmatter.date}
+                        githubLink={project.frontmatter.githubLink} description={project.frontmatter.description}
+                        wip={project.frontmatter.wip} rework={project.frontmatter.rework}
+                        webPageLink={project.frontmatter.webPageLink} />
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    li {
+        list-style: none;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    :global(p) {
+        font-family: var(--noto-serif-font);
+        color: var(--body-color);
+        font-weight: 300;
+        line-height: 28px;
+    }
+
+    main {
+        margin-top: 48px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .post-section {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+    }
+</style>

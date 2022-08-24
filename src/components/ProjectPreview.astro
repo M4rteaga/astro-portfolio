@@ -1,0 +1,132 @@
+---
+import GithubIcon from "./icons/GithubIcon.astro";
+import ProjectIcon from "./icons/ProjectIcon.astro";
+
+export interface Props {
+    title: string;
+    description: string;
+    wip: boolean;
+    date: string;
+    link: string;
+    githubLink?: string;
+    rework: boolean;
+    webPageLink?: string;
+
+}
+
+const { title, wip, rework, description, date, link, githubLink, webPageLink } = Astro.props;
+---
+
+<a href={link} aria-label={`project ${title}`} class="project-container">
+    <div class="date-title-container">
+        <div class="project-title-container">
+            <h2>{title}</h2>
+            {wip ? <span>(WIP)</span> : null}
+            {rework ? <span>(Rework)</span> : null}
+        </div>
+        <span class="date">{date}</span>
+    </div>
+    <p class="description">{description}</p>
+    <div class="icons-links-section">
+        {webPageLink ? <a href={webPageLink} class="webpage-link">
+            <ProjectIcon />
+        </a> : null}
+        {githubLink ? <a href={githubLink} class="github-link">
+            <GithubIcon />
+        </a> : null}
+    </div>
+</a>
+
+<style>
+    .project-container {
+        position: relative;
+        display: inline-block;
+        padding: 12px 24px;
+        margin: 0 -20px;
+        border-radius: 6px;
+        width: 648px;
+    }
+
+    .icons-links-section {
+        position: absolute;
+        top: 12px;
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .icons-links-section>.project-container {
+        display: none;
+    }
+
+    .github-link:hover :global(svg),
+    .webpage-link:hover :global(svg) {
+        color: var(--gray8);
+        transition: all ease-in-out 0.1s;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .project-container:hover {
+        background-color: var(--gray4);
+    }
+
+    .description {
+        margin-top: 8px;
+        font-size: var(--font-size-14);
+    }
+
+    :global(p) {
+        font-family: var(--noto-serif-font);
+        color: var(--body-color);
+        font-size: var(--font-size-14);
+        font-weight: 300;
+        line-height: 28px;
+    }
+
+    .date {
+        font-size: var(--font-size-12);
+        color: var(--gray9);
+        font-family: var(--noto-serif-font);
+    }
+
+    .date-title-container {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .project-title-container {
+        color: var(--gray12);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    h2 {
+        font-size: var(--font-size-24);
+        font-weight: 500;
+        line-height: 1.2;
+        color: var(--title-color);
+        font-family: var(--noto-serif-display-font);
+    }
+
+    span {
+        font-size: var(--font-size-14);
+        font-weight: 500;
+        line-height: 1.2;
+        color: var(--body-color);
+        font-family: var(--noto-serif-display-font);
+    }
+
+    h2,
+    span {
+        margin: 0;
+        margin-block: 0;
+        margin-inline: 0;
+    }
+</style>

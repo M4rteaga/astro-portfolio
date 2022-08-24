@@ -1,0 +1,65 @@
+---
+import WritingPost from "../components/WritingPost.astro";
+import Layout from "../layouts/Layout.astro";
+
+const pathname = Astro.url.pathname;
+
+const posts = (await Astro.glob("./post/**/*.md"))
+    .filter(({ frontmatter }) => !!frontmatter.publishDate)
+    .sort(
+        (a, b) =>
+            new Date(b.frontmatter.publishDate).valueOf() -
+            new Date(a.frontmatter.publishDate).valueOf()
+    );
+---
+
+<Layout title="Welcome to Astro.">
+    <main>
+        <section aria-label="projects section" class="post-section">
+            <ul>
+                {
+                    posts.map((post) => (
+                        <li>
+                            <WritingPost
+                                link={
+                                    pathname +
+                                    post.file.split("/").pop().split(".")[0]
+                                }
+                                date={post.frontmatter.date}
+                                title={post.frontmatter.title}
+                            />
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .post-section {
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 0 1rem;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    main {
+        margin-top: 48px;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+</style>
