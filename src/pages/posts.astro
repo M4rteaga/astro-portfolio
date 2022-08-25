@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 const pathname = Astro.url.pathname;
 
-const posts = (await Astro.glob("./post/**/*.md"))
+const posts = (await Astro.glob("./posts/**/*.md"))
     .filter(({ frontmatter }) => !!frontmatter.publishDate)
     .sort(
         (a, b) =>
@@ -21,10 +21,8 @@ const posts = (await Astro.glob("./post/**/*.md"))
                     posts.map((post) => (
                         <li>
                             <WritingPost
-                                link={
-                                    pathname +
-                                    post.file.split("/").pop().split(".")[0]
-                                }
+                                link={`
+                                    ${pathname}/${post.file.split("/").pop().split(".")[0]}`}
                                 date={post.frontmatter.date}
                                 title={post.frontmatter.title}
                             />

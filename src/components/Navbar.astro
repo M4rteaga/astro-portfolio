@@ -12,7 +12,7 @@ const url = new URL(Astro.request.url);
 const { pathname } = url;
 const isHome = pathname === '/';
 const isProject = pathname.includes('/project');
-const isWriting = pathname.includes('/writing');
+const isWriting = pathname.includes('/posts');
 ---
 
 <nav role="navigation">
@@ -38,7 +38,7 @@ const isWriting = pathname.includes('/writing');
         </li>
         <li>
             <span class="tooltip">Writing</span>
-            <a href="/writing" aria-label="navigation to blog">
+            <a href="/posts" aria-label="navigation to blog">
                 <div class={`${isWriting ? 'active-nav-container' : 'default-nav-container' } nav-container` }>
                     <PencilIcon />
                 </div>

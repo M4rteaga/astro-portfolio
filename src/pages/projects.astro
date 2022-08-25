@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 const pathname = Astro.url.pathname;
 
-const projects = (await Astro.glob("./project/**/*.md"))
+const projects = (await Astro.glob("./projects/**/*.md"))
     .filter(({ frontmatter }) => !!frontmatter.publishDate)
     .sort(
         (a, b) =>
@@ -20,7 +20,7 @@ const projects = (await Astro.glob("./project/**/*.md"))
                 {
                     projects.map((project) => (
                         <li>
-                            <ProjectPreview client:visible link={pathname + project.file.split('/').pop().split('.')[0]}
+                            <ProjectPreview client:visible link={`${pathname}/${project.file.split('/').pop().split('.')[0]}`}
                         title={project.frontmatter.title} date={project.frontmatter.date}
                         githubLink={project.frontmatter.githubLink} description={project.frontmatter.description}
                         wip={project.frontmatter.wip} rework={project.frontmatter.rework}
