@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 const pathname = Astro.url.pathname;
 
-const projects = (await Astro.glob("./projects/**/*.md"))
+const projects = (await Astro.glob("./projects/**/*.mdx"))
     .filter(({ frontmatter }) => !!frontmatter.publishDate)
     .sort(
         (a, b) =>
