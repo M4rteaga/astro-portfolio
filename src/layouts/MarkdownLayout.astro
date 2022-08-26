@@ -1,116 +1,75 @@
 ---
-import Footer from '../components/Footer.astro';
-import Logo from '../components/Logo.astro';
-import '../styles/global.css';
-
+import Footer from "../components/Footer.astro";
+import Logo from "../components/Logo.astro";
+import "../styles/global.css";
 
 const { frontmatter } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-lucario.css"
+        />
+        <title>{frontmatter.title}</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-lucario.css" />
-    <title>{frontmatter.title}</title>
+        <style>
+            .markdown__wrapper {
+                max-width: 650px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
 
-    <style>
-        :global(img) {
-            margin-top: 16px;
-            width: 100%;
-            height: 450px;
-            object-fit: contain;
-            background-color: var(--gray3);
-            border-radius: 6px;
-        }
+    <body>
+        <header>
+            <a href="/" class="logo-anchor">
+                <Logo />
+            </a>
+        </header>
+        <section class="content-container">
+            <article class="markdown__wrapper">
+                <slot />
+            </article>
+        </section>
+        <footer>
+            <Footer />
+        </footer>
+        <style>
+            footer {
+                margin-top: auto;
+            }
 
-        :global(li) {
-            color: var(--body-color);
-            font-family: var(--noto-serif-font);
-            font-size: var(--font-size-16);
-            line-height: 28px;
-        }
+            body {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
 
-        :global(p) {
-            font-family: var(--noto-serif-font);
-            color: var(--body-color);
-            font-weight: 300;
-            line-height: 28px;
-            font-size: var(--font-size-16);
-        }
+            html {
+                background: var(--background-color);
+            }
 
-        :global(h1) {
-            font-size: var(--font-title);
-            font-weight: 500;
-            line-height: 28px;
-        }
+            .logo-anchor {
+                display: block;
+                width: fit-content;
+                text-decoration: none;
+                cursor: pointer;
+            }
 
-        a{
-            color: var(--body-color);
-            text-decoration: underline;
-        }
-
-        :global(h2, h3, h1, h4, h5, h6) {
-            font-family: var(--noto-serif-display-font);
-            color: var(--title-color);
-        }
-
-        article {
-            max-width: 650px;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <a href="/" class="logo-anchor">
-            <Logo />
-        </a>
-    </header>
-    <section class="content-container">
-        <article>
-            <slot />
-        </article>
-    </section>
-    <footer>
-        <Footer />
-    </footer>
-</body>
-
+            .content-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                max-width: 720px;
+                margin: 0 auto;
+                animation: content-load 0.7s ease-in-out;
+            }
+        </style>
+    </body>
 </html>
-
-<style>
-    footer {
-        margin-top: auto;
-    }
-
-    body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-
-    html {
-        background: var(--background-color);
-    }
-
-    .logo-anchor {
-        display: block;
-        width: fit-content;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .content-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        max-width: 720px;
-        margin: 0 auto;
-        animation: content-load 0.7s ease-in-out;
-    }
-</style>
