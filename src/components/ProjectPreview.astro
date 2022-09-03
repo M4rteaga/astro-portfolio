@@ -1,5 +1,6 @@
 ---
 import GithubIcon from './icons/GithubIcon.astro';
+import LinkIcon from './icons/LinkIcon.astro';
 import ProjectIcon from './icons/ProjectIcon.astro';
 
 export interface Props {
@@ -31,7 +32,7 @@ const { title, wip, rework, description, date, link, githubLink, webPageLink } =
 		{
 			webPageLink ? (
 				<a href={webPageLink} class="webpage-link">
-					<ProjectIcon />
+					<LinkIcon />
 				</a>
 			) : null
 		}
