@@ -1,0 +1,42 @@
+.md-img {
+    margin-top: 16px;
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+    background-color: var(--gray3);
+    border-radius: 6px;
+}
+
+.md-li {
+    color: var(--body-color);
+    font-size: var(--font-size-16);
+    line-height: 28px;
+}
+
+.md-p {
+    color: var(--body-color);
+    font-weight: 300;
+    line-height: 28px;
+    font-size: var(--font-size-16);
+}
+
+.md-h1 {
+    font-size: var(--font-title);
+    font-weight: 500;
+    color: var(--title-color);
+    line-height: 28px;
+}
+
+.md-ancher {
+    color: var(--body-color);
+    text-decoration: underline;
+}
+
+.md-headings {
+    color: var(--title-color);
+}
+
+.article {
+    max-width: 1200px;
+    margin: 0 auto;
+}

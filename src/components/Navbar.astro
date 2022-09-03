@@ -16,200 +16,208 @@ const isWriting = pathname.includes('/posts');
 ---
 
 <nav role="navigation">
-    <ul>
-        <li>
-            <span class="tooltip">Home</span>
-            <a href="/" aria-label="navigation to home">
-                <div class={`nav-container ${isHome ? 'active-nav-container' : 'default-nav-container' }`}>
-                    <HomeIcon />
-                </div>
-            </a>
-            <div class={isHome ? 'active' : '' }></div>
-        </li>
-        <li>
-            <span class="tooltip">Projects</span>
-            <a href="/projects" aria-label="navigation to projects">
-                <div class={`nav-container ${isProject ? 'active-nav-container' : 'default-nav-container' } `}>
-                    <ProjectIcon />
-                </div>
-            </a>
-            <div class={isProject ? 'active' : '' }></div>
-
-        </li>
-        <li>
-            <span class="tooltip">Writing</span>
-            <a href="/posts" aria-label="navigation to blog">
-                <div class={`${isWriting ? 'active-nav-container' : 'default-nav-container' } nav-container` }>
-                    <PencilIcon />
-                </div>
-            </a>
-            <div class={isWriting ? 'active' : '' }></div>
-
-        </li>
-        <span class='separator'></span>
-        <li>
-            <span class="tooltip">Github</span>
-            <a href="https://github.com/M4rteaga" aria-label="navigation to external link github">
-                <div class="default-nav-container nav-container">
-                    <GithubIcon />
-                </div>
-            </a>
-        </li>
-        <li>
-            <span class="tooltip">Twitter</span>
-            <a href="https://twitter.com/M4rteaga" aria-label="navigation to external link twitter">
-                <div class="default-nav-container nav-container">
-                    <TwitterIcon />
-                </div>
-            </a>
-        </li>
-        <li>
-            <span class="tooltip">Linkedin</span>
-            <a href="https://www.linkedin.com/in/mateoarteaga/">
-                <div class="default-nav-container nav-container" aria-label="navigation to external link linkedin">
-                    <LinkedinIcon />
-                </div>
-            </a>
-        </li>
-    </ul>
+	<ul>
+		<li>
+			<span class="tooltip">Home</span>
+			<a href="/" aria-label="navigation to home">
+				<div
+					class={`nav-container ${
+						isHome ? 'active-nav-container' : 'default-nav-container'
+					}`}
+				>
+					<HomeIcon />
+				</div>
+			</a>
+			<div class={isHome ? 'active' : ''}></div>
+		</li>
+		<li>
+			<span class="tooltip">Projects</span>
+			<a href="/projects" aria-label="navigation to projects">
+				<div
+					class={`nav-container ${
+						isProject ? 'active-nav-container' : 'default-nav-container'
+					} `}
+				>
+					<ProjectIcon />
+				</div>
+			</a>
+			<div class={isProject ? 'active' : ''}></div>
+		</li>
+		<li>
+			<span class="tooltip">Writing</span>
+			<a href="/posts" aria-label="navigation to blog">
+				<div
+					class={`${
+						isWriting ? 'active-nav-container' : 'default-nav-container'
+					} nav-container`}
+				>
+					<PencilIcon />
+				</div>
+			</a>
+			<div class={isWriting ? 'active' : ''}></div>
+		</li>
+		<span class="separator"></span>
+		<li>
+			<span class="tooltip">Github</span>
+			<a
+				href="https://github.com/M4rteaga"
+				aria-label="navigation to external link github"
+			>
+				<div class="default-nav-container nav-container">
+					<GithubIcon />
+				</div>
+			</a>
+		</li>
+		<li>
+			<span class="tooltip">Twitter</span>
+			<a
+				href="https://twitter.com/M4rteaga"
+				aria-label="navigation to external link twitter"
+			>
+				<div class="default-nav-container nav-container">
+					<TwitterIcon />
+				</div>
+			</a>
+		</li>
+		<li>
+			<span class="tooltip">Linkedin</span>
+			<a href="https://www.linkedin.com/in/mateoarteaga/">
+				<div
+					class="default-nav-container nav-container"
+					aria-label="navigation to external link linkedin"
+				>
+					<LinkedinIcon />
+				</div>
+			</a>
+		</li>
+	</ul>
 </nav>
 
 <style>
-    :global(li) {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+	:global(li) {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
-    .tooltip {
-        visibility: hidden;
-        padding: 2px 10px;
-        background-color: var(--gray3);
-        color: var(--body-color);
-        text-align: center;
-        border-radius: 6px;
-        font-size: var(--font-size-12);
-        font-family: var(--noto-serif-font);
-        position: absolute;
-        z-index: 1;
-    }
+	.tooltip {
+		visibility: hidden;
+		padding: 2px 10px;
+		background-color: var(--gray3);
+		color: var(--body-color);
+		text-align: center;
+		border-radius: 6px;
+		font-size: var(--font-size-12);
+		position: absolute;
+		z-index: 1;
+	}
 
-    @keyframes tooltip-animation {
-        0% {
-            opacity: 0;
-        }
+	@keyframes tooltip-animation {
+		0% {
+			opacity: 0;
+		}
 
-        100% {
-            opacity: 1;
-        }
-    }
+		100% {
+			opacity: 1;
+		}
+	}
 
-    li:hover .tooltip {
-        visibility: visible;
-        top: -55px;
-        animation: tooltip-animation 0.5s ease-in-out;
-    }
+	li:hover .tooltip {
+		visibility: visible;
+		top: -55px;
+		animation: tooltip-animation 0.5s ease-in-out;
+	}
 
-    a:focus {
-        outline-style: none;
-        box-shadow: var(--gray7) 0px 1px 1px, var(--gray7) 0px 0px 0px 1px;
-        border-radius: 6px;
-    }
+	a:focus {
+		outline-style: none;
+		box-shadow: var(--gray7) 0px 1px 1px, var(--gray7) 0px 0px 0px 1px;
+		border-radius: 6px;
+	}
 
+	.active {
+		background-image: url('/home-mesh-gradient.jpg');
+		background-color: var(--gray8);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: inline-block;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		margin-top: 6px;
+	}
 
-    .active {
-        background-image: url("/home-mesh-gradient.jpg");
-        background-color: var(--gray8);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: inline-block;
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        margin-top: 6px;
-    }
+	.nav-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 48px;
+		height: 48px;
+		border-radius: 6px;
+		transition: all 0.1s ease-in-out;
+	}
 
+	.nav-container:hover {
+		background-color: var(--gray4);
+		transition: all 0.1s ease-in-out;
+		/* translate up  */
+		transform: translateY(-4px) scale(1.2);
+	}
 
-    .nav-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        border-radius: 6px;
-        transition: all 0.1s ease-in-out;
+	.default-nav-container {
+		background-color: var(--gray3);
+		transition: background-color 0.2s ease-in-out;
+	}
 
-    }
+	.default-nav-container:hover {
+		background-color: var(--gray4);
+		transition: all 0.1s ease-in-out;
+		/* translate up  */
+		transform: translateY(-4px) scale(1.2);
+	}
 
+	.active-nav-container {
+		background-color: var(--gray5);
+	}
 
-    .nav-container:hover {
-        background-color: var(--gray4);
-        transition: all 0.1s ease-in-out;
-        /* translate up  */
-        transform: translateY(-4px) scale(1.2);
-    }
+	.default-nav-container:hover :global(svg) {
+		transition: all 0.2s ease-in-out;
+	}
 
-    .default-nav-container {
-        background-color: var(--gray3);
-        transition: background-color 0.2s ease-in-out;
-    }
+	.separator {
+		display: inline-block;
+		width: 2px;
+		background-color: var(--gray7);
+		margin: 0 5px;
+	}
 
-    .default-nav-container:hover {
-        background-color: var(--gray4);
-        transition: all 0.1s ease-in-out;
-        /* translate up  */
-        transform: translateY(-4px) scale(1.2);
+	a {
+		text-decoration: none;
+		cursor: pointer;
+	}
 
+	nav {
+		display: inline-block;
+		width: fit-content;
+		align-items: center;
+		height: 52px;
+		padding: 12px 9px;
+		border: 1px solid var(--gray6);
+		border-radius: 8px;
+	}
 
-    }
+	ul {
+		display: flex;
+		flex-direction: row;
+		gap: 24px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 
-    .active-nav-container {
-        background-color: var(--gray5);
-    }
-
-
-
-    .default-nav-container:hover :global(svg) {
-        transition: all 0.2s ease-in-out;
-
-    }
-
-
-    .separator {
-        display: inline-block;
-        width: 2px;
-        background-color: var(--gray7);
-        margin: 0 5px;
-    }
-
-    a {
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    nav {
-        display: inline-block;
-        width: fit-content;
-        align-items: center;
-        height: 52px;
-        padding: 12px 9px;
-        border: 1px solid var(--gray6);
-        border-radius: 8px;
-    }
-
-    ul {
-        display: flex;
-        flex-direction: row;
-        gap: 24px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    img {
-        width: 24px;
-        height: 24px;
-    }
+	img {
+		width: 24px;
+		height: 24px;
+	}
 </style>
