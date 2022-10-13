@@ -62,4 +62,10 @@ const posts = (await Astro.glob('./posts/**/*.mdx'))
 		flex-direction: column;
 		align-items: flex-start;
 	}
+
+	@media only screen and (max-width: 530px) {
+		main {
+			margin-top: 0;
+		}
+	}
 </style>

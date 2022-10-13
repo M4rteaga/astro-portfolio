@@ -69,4 +69,10 @@ const projects = (await Astro.glob('./projects/**/*.mdx'))
 
 		align-items: center;
 	}
+
+	@media only screen and (max-width: 530px) {
+		main {
+			margin-top: 0;
+		}
+	}
 </style>

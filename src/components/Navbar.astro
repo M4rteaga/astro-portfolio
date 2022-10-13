@@ -3,9 +3,10 @@ import '../styles/global.css';
 import HomeIcon from './icons/HomeIcon.astro';
 import ProjectIcon from './icons/ProjectIcon.astro';
 import PencilIcon from './icons/PencilIcon.astro';
-import GithubIcon from './icons/GithubIcon.astro';
-import LinkedinIcon from './icons/LinkedinIcon.astro';
-import TwitterIcon from './icons/TwitterIcon.astro';
+import GithubIcon from './icons/GithubIcon';
+import LinkedinIcon from './icons/LinkedinIcon';
+import TwitterIcon from './icons/TwitterIcon';
+import Social from './Social';
 
 const url = new URL(Astro.request.url);
 
@@ -57,39 +58,44 @@ const isWriting = pathname.includes('/posts');
 			<div class={isWriting ? 'active' : ''}></div>
 		</li>
 		<span class="separator"></span>
-		<li>
-			<span class="tooltip">Github</span>
-			<a
-				href="https://github.com/M4rteaga"
-				aria-label="navigation to external link github"
-			>
-				<div class="default-nav-container nav-container">
-					<GithubIcon />
-				</div>
-			</a>
-		</li>
-		<li>
-			<span class="tooltip">Twitter</span>
-			<a
-				href="https://twitter.com/M4rteaga"
-				aria-label="navigation to external link twitter"
-			>
-				<div class="default-nav-container nav-container">
-					<TwitterIcon />
-				</div>
-			</a>
-		</li>
-		<li>
-			<span class="tooltip">Linkedin</span>
-			<a href="https://www.linkedin.com/in/mateoarteaga/">
-				<div
-					class="default-nav-container nav-container"
-					aria-label="navigation to external link linkedin"
+
+		<Social client:load />
+
+		<section class="social">
+			<li>
+				<span class="tooltip">Github</span>
+				<a
+					href="https://github.com/M4rteaga"
+					aria-label="navigation to external link github"
 				>
-					<LinkedinIcon />
-				</div>
-			</a>
-		</li>
+					<div class="default-nav-container nav-container">
+						<GithubIcon />
+					</div>
+				</a>
+			</li>
+			<li>
+				<span class="tooltip">Twitter</span>
+				<a
+					href="https://twitter.com/M4rteaga"
+					aria-label="navigation to external link twitter"
+				>
+					<div class="default-nav-container nav-container">
+						<TwitterIcon />
+					</div>
+				</a>
+			</li>
+			<li>
+				<span class="tooltip">Linkedin</span>
+				<a href="https://www.linkedin.com/in/mateoarteaga/">
+					<div
+						class="default-nav-container nav-container"
+						aria-label="navigation to external link linkedin"
+					>
+						<LinkedinIcon />
+					</div>
+				</a>
+			</li>
+		</section>
 	</ul>
 </nav>
 
@@ -222,8 +228,38 @@ const isWriting = pathname.includes('/posts');
 		height: 24px;
 	}
 
+	.social {
+		display: flex;
+		flex-direction: row;
+		gap: 24px;
+	}
+
+	.social-dots-li {
+		display: none;
+	}
+
 	@media only screen and (max-width: 530px) {
 		nav {
+			position: fixed;
+			bottom: 8%;
+			background-color: rgba(0, 0, 0, 0.299);
+			backdrop-filter: blur(5px);
+			z-index: 1000;
+		}
+		.tooltip {
+			display: none;
+		}
+
+		.social-dots-li {
+			display: block;
+		}
+
+		.dots {
+			text-align: center;
+			color: white;
+		}
+
+		.social {
 			display: none;
 		}
 	}

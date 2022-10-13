@@ -33,7 +33,7 @@ import Layout from '../layouts/Layout.astro';
 		color: plum;
 		cursor: pointer;
 	}
-	:global(a, h1, h2, h3, h4, h5, h6, p) {
+	:global(a, h1, h2, h3, h5, h6, p) {
 		all: unset;
 	}
 
@@ -77,5 +77,11 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--body-color);
 		font-weight: 300;
 		line-height: 28px;
+	}
+
+	@media only screen and (max-width: 530px) {
+		main {
+			margin-top: 0;
+		}
 	}
 </style>
