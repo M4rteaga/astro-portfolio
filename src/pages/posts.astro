@@ -4,18 +4,21 @@ import Layout from '../layouts/Layout.astro';
 
 const pathname = Astro.url.pathname;
 
-const posts = (await Astro.glob('./posts/**/*.mdx'))
-	.filter(({ frontmatter }) => !!frontmatter.publishDate)
-	.sort(
-		(a, b) =>
-			new Date(b.frontmatter.publishDate).valueOf() -
-			new Date(a.frontmatter.publishDate).valueOf()
-	);
+// const posts = (await Astro.glob('./posts/**/*.mdx'))
+// 	.filter(({ frontmatter }) => !!frontmatter.publishDate)
+// 	.sort(
+// 		(a, b) =>
+// 			new Date(b.frontmatter.publishDate).valueOf() -
+// 			new Date(a.frontmatter.publishDate).valueOf()
+// 	);
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<section aria-label="projects section" class="post-section">
+		<div class="no-posts">
+			<p>There are no posts yet</p>
+		</div>
+		<!-- <section aria-label="projects section" class="post-section">
 			<ul>
 				{
 					posts.map((post) => (
@@ -32,11 +35,16 @@ const posts = (await Astro.glob('./posts/**/*.mdx'))
 					))
 				}
 			</ul>
-		</section>
+		</section> -->
 	</main>
 </Layout>
 
 <style>
+	.no-posts {
+		margin: auto;
+		color: var(--body-color);
+		font-style: italic;
+	}
 	.post-section {
 		margin: 0 auto;
 		max-width: 600px;

@@ -58,8 +58,9 @@ const isWriting = pathname.includes('/posts');
 			<div class={isWriting ? 'active' : ''}></div>
 		</li>
 		<span class="separator"></span>
-
-		<Social client:load />
+		<li class="social-li">
+			<Social client:load />
+		</li>
 
 		<section class="social">
 			<li>
@@ -234,7 +235,7 @@ const isWriting = pathname.includes('/posts');
 		gap: 24px;
 	}
 
-	.social-dots-li {
+	.social-li {
 		display: none;
 	}
 
@@ -261,6 +262,10 @@ const isWriting = pathname.includes('/posts');
 
 		.social {
 			display: none;
+		}
+
+		.social-li {
+			display: block;
 		}
 	}
 </style>

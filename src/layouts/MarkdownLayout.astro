@@ -5,6 +5,12 @@ import '../styles/global.css';
 import '../styles/markdown.css';
 
 const { frontmatter } = Astro.props;
+const { pathname } = Astro.url;
+
+const aux = pathname.split('/');
+const backPath = aux.slice(0, aux.length - 1).join('/');
+
+console.log(backPath);
 ---
 
 <!DOCTYPE html>
@@ -24,7 +30,7 @@ const { frontmatter } = Astro.props;
 	</head>
 	<body>
 		<header>
-			<a href="/" class="logo-link">
+			<a href={backPath} class="logo-link">
 				<Logo />
 			</a>
 		</header>
