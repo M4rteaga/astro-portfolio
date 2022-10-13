@@ -1,11 +1,11 @@
 ---
-import Footer from "../components/Footer.astro";
-import Logo from "../components/Logo.astro";
-import Navbar from "../components/Navbar.astro";
-import "../styles/global.css";
+import Footer from '../components/Footer.astro';
+import Logo from '../components/Logo.astro';
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
 
 export interface Props {
-  title: string;
+	title: string;
 }
 
 const url = new URL(Astro.request.url);
@@ -17,82 +17,90 @@ const { title } = Astro.props as Props;
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>{title}</title>
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<title>{title}</title>
+	</head>
 
-  <body>
-    <header>
-      <a href="/" class="logo-link">
-        <Logo />
-      </a>
-      <div class="navbar-container">
-        <Navbar pathname={pathname} />
-      </div>
-    </header>
-    <div class="content-container">
-      <slot />
-    </div>
-    <footer>
-      <Footer />
-    </footer>
-    <style>
-      footer {
-        margin-top: auto;
-      }
+	<body>
+		<header>
+			<a href="/" class="logo-link">
+				<Logo />
+			</a>
+			<div class="navbar-container">
+				<Navbar pathname={pathname} />
+			</div>
+		</header>
+		<div class="content-container">
+			<slot />
+		</div>
+		<footer>
+			<Footer />
+		</footer>
+		<style>
+			footer {
+				margin-top: auto;
+			}
 
-      html {
-        display: inline-block;
-        height: 100%;
-        background: var(--background-color);
-      }
+			html {
+				display: inline-block;
+				height: 100%;
+				background: var(--background-color);
+			}
 
-      body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
+			body {
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+			}
 
-      a {
-        text-decoration: none;
-      }
+			a {
+				text-decoration: none;
+			}
 
-      @keyframes content-load {
-        0% {
-          opacity: 0;
-        }
+			@keyframes content-load {
+				0% {
+					opacity: 0;
+				}
 
-        100% {
-          opacity: 1;
-        }
-      }
+				100% {
+					opacity: 1;
+				}
+			}
 
-      .logo-link {
-        display: block;
-        width: fit-content;
-        cursor: pointer;
-      }
+			.logo-link {
+				display: block;
+				width: fit-content;
+				cursor: pointer;
+			}
 
-      .content-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 720px;
-        margin: 0 auto;
-        animation: content-load 0.7s ease-in-out;
-      }
+			.content-container {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				width: 720px;
+				margin: 0 auto;
+				animation: content-load 0.7s ease-in-out;
+			}
 
-      .navbar-container {
-        margin-top: 42px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 0.5rem 1rem;
-      }
-    </style>
-  </body>
+			.navbar-container {
+				margin-top: 42px;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				padding: 0.5rem 1rem;
+			}
+
+			@media only screen and (max-width: 770px) {
+				.content-container {
+					width: auto;
+					margin: 0 auto;
+					padding: 0 24px;
+				}
+			}
+		</style>
+	</body>
 </html>
