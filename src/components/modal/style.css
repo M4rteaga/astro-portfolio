@@ -1,0 +1,88 @@
+.overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    inset: 0;
+    z-index: 18;
+}
+
+.modal-content-container {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.content {
+    position: relative;
+    left: -50%;
+    background: var(--gray3);
+    border-radius: 6px;
+    width: 40vw;
+    max-width: 200px;
+    /* max-height: 85vh; */
+    padding: 20px 40px;
+}
+
+.content>h3 {
+    color: white;
+}
+
+
+
+.content-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin: 18px 0;
+}
+
+.content-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--gray5);
+    padding: 8px 0;
+    border-radius: 6px;
+    color: var(--body-color);
+    cursor: pointer;
+}
+
+.content-button:hover {
+    color: white;
+    transition: ease-in-out 0.2s;
+    background-color: var(--gray6);
+
+}
+
+.exit-button {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    background-color: var(--gray5);
+    border-radius: 100%;
+    padding: 2px;
+    color: var(--body-color);
+    top: 8px;
+    right: 8px;
+}
+
+.exit-button:hover {
+    color: white;
+    transition: ease-in-out 0.2s;
+    background-color: var(--gray8);
+}
+
+.trigger {
+    all: unset;
+}

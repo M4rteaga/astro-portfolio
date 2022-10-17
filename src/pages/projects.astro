@@ -1,5 +1,6 @@
 ---
-import ProjectPreview from '../components/ProjectPreview.astro';
+// import ProjectPreview from '../components/ProjectPreview.astro';
+import ProjectPreview from '../components/projectPreviewSolid';
 import Layout from '../layouts/Layout.astro';
 
 const pathname = Astro.url.pathname;
@@ -21,9 +22,7 @@ const projects = (await Astro.glob('./projects/**/*.mdx'))
 					projects.map((project) => (
 						<li>
 							<ProjectPreview
-								link={`${pathname}/${
-									project.file.split('/').pop().split('.')[0]
-								}`}
+								client:load
 								title={project.frontmatter.title}
 								date={project.frontmatter.date}
 								githubLink={project.frontmatter.githubLink}

@@ -44,15 +44,14 @@
     padding: 12px 9px;
     border: 1px solid var(--gray6);
     border-bottom: 0px;
-    right: 0px;
+    right: -10px;
     border-radius: 8px 8px 0 0px;
     background-color: rgba(0, 0, 0, 0.299);
     backdrop-filter: blur(5px);
-    z-index: 1000;
 }
 
 .pop-up-open {
-    bottom: 100%;
+    bottom: 119%;
     animation: pop-up-animation-open 0.5s ease-in-out;
 }
 
