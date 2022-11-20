@@ -53,6 +53,7 @@ interface ContentProps {
 function ModalContent(props: ContentProps) {
 	const anchorStyle: JSX.CSSProperties = {
 		'text-decoration': 'none',
+		
 	};
 
 	return (
